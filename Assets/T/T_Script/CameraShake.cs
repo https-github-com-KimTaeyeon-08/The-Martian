@@ -4,30 +4,25 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    public float power;
-    public float shake_time;
-   
-    Vector3 position;
-   public void shakefortime(float time)
-    {
-        shake_time = time;
-    }
-    private void Start()
-    {
-        position = new Vector3(980f, 547.3f, -583f);
-    }
+    public float Power;
+    public float ShakeTime;
+
+    private Vector3 cameraPosition = new Vector3(980f, 547.3f, -583f);
+
+    public void ShakeForTime(float time) => ShakeTime = time;
+
     private void Update()
     {
-        if (shake_time > 0)
+        if (ShakeTime > 0)
         {
-            transform.position = Random.insideUnitSphere * power + position;
-            
-            shake_time -= Time.deltaTime;
+            transform.position = Random.insideUnitSphere * Power + cameraPosition;
+
+            ShakeTime -= Time.deltaTime;
         }
         else
         {
-            shake_time = 0.0f;
-            transform.position = position;
+            ShakeTime = 0.0f;
+            transform.position = cameraPosition;
         }
     }
 }

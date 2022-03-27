@@ -5,26 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public void OnClickLanding() => SceneManager.LoadScene("Stage1");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void OnclickLanding()
-    {
-        SceneManager.LoadScene("Stage1");
-    }
-    public void OnclickStart()
-    {
-        SceneManager.LoadScene("LoadScene");
-    }
-    public void OnclickQuit()
+    public void OnClickStart() => SceneManager.LoadScene("LoadScene");
+
+    public void OnClickQuit()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
